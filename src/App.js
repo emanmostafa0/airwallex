@@ -3,18 +3,12 @@ import './App.css';
 import Modal from "react-modal";
 
 function App() {
-  let x;
-  let yl;
-  
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal() {
     setIsOpen(!isOpen);
   }
 
-  console.log("vfed");
-  console.log("fsdbz");
-  console.log("fsdbz");
   return (
     <div >
       <header className="App-header">
