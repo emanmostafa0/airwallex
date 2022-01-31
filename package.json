@@ -47,7 +47,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-testing-library": "^5.0.4",
-    "husky": "^7.0.4",
+    "husky": "^4.3.8",
     "lint-staged": "^12.3.2",
     "prettier": "^2.5.1"
   },
@@ -58,9 +58,8 @@
   },
   "lint-staged": {
     "*.js": [
-        "eslint --ext src/**/*.{js}",
-        "git add"
+      "eslint --ext src/**/*.{js}",
+      "git add"
     ]
-},
-  
+  }
 }
