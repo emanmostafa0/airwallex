@@ -4,6 +4,7 @@ import Modal from "react-modal";
 
 function App() {
   let x;
+  let yl;
   
   const [isOpen, setIsOpen] = useState(false);
 
