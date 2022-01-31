@@ -24,9 +24,7 @@ module.exports = {
     "ecmaVersion": 13,
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
+  plugins: ["react", "react-hooks", "import", "jsx-a11y", "prettier", "jest-dom", "testing-library", "cypress"],
   "rules": {
     "strict": 0,
     "max-len": [2, 120, 2],
