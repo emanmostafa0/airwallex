@@ -55,6 +55,12 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "lint-staged": {
+    "*.js": [
+        "eslint --ext src/**/*.{js}",
+        "git add"
+    ]
+},
   
 }
