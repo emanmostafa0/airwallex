@@ -6,7 +6,7 @@ import { validateConfirmEmail, validateEmail, validateFName, errorMessages } fro
 import Api from "../../../service/api";
 import { OPENSUCCESS } from '../../../store/actionTypes';
 import { useStore } from '../../../store/StoreProvider';
-import {StyledErrorMessage} from './style';
+import {StyledErrorMessage, StyledAction} from './style';
 
 export function UserForm() {
   const [email, setEmail] = useState("");
@@ -113,9 +113,11 @@ export function UserForm() {
         validationMassage={!confirmEmailValid ? errorMessages['confirmEmail']: ''}>
       </Input>
 
-      <Button onClick={handleSubmit} label={buttonLabel} disable={buttonDisabled}></Button>
-
-      {errorSubmit && <StyledErrorMessage  data-testid="errorSubmit" >{ errorSubmit }</StyledErrorMessage> }
+      <StyledAction>
+        <Button onClick={handleSubmit} label={buttonLabel} disable={buttonDisabled}></Button>
+   
+        {errorSubmit && <StyledErrorMessage  data-testid="errorSubmit" >{ errorSubmit }</StyledErrorMessage> }
+      </StyledAction>
     </div>
   );
 }
