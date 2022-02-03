@@ -29,7 +29,7 @@
 
 * I have use useContext and useReducer hooks for state managements, to store the states and share the states between components. also to not have Prop drilling issue.
 
-* I have used Atomic design pattern for structuring the components: 
+* I have used Atomic component design for structuring the components: 
 https://atomicdesign.bradfrost.com/chapter-2/
 
 the component sturcture:
