@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+### React Assignment solution:
+* I have implemented the application with one page called Home.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* you need first to run : ``` npm install ``` .
 
-## Available Scripts
+* you can start running the application with this command: ``` npm run start ``` .
 
-In the project directory, you can run:
+* you need to install an HTTP server to be able to run the react application in production mode : ``` npm install serve -g ``` .
 
-### `npm start`
+* to run the React application in production mode run : ``` npm run build ``` then  ``` serve -s build ``` .
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* I have used Jest for unit testing the components, you can try it out by this command: ``` npm run test ```.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* I have used Cypress for E2E testing : you can try it out by this command: ``` npm run cypress:open ``` , If that command doesn't work , maybe this command is better :  ``` yarn start & yarn cypess open ``` .
 
-### `npm test`
+* for code organization and having the same syntax, I have used Eslint. I have some eslint rules setted up in .eslintrc.js .
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* I have downloaded eslint plugin in VScode, so that the editor can easily detect if there is an eslint error.
 
-### `npm run build`
+* I have used 'lint-staged' in package.json , so that if there is an error for eslint can be easily detected before committing my changes to github.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* In the application,when you click on the button to request an invite , first you need to write the correct email,confirm email and FullName , then the api will be called.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* if you enter invalid fields , you will get an error messages and the api will not be called.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* If you used 'Usedemail@airwallex.com' , you will get an error message from the api response.
 
-### `npm run eject`
+* I have used 'react-modal' library for the popup dialog, it is more flexible library and can be edited easily.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* I have use useContext and useReducer hooks for state managements, to store the states and share the states between components. also to not have Prop drilling issue.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* I have used Atomic design pattern for structuring the components: 
+https://atomicdesign.bradfrost.com/chapter-2/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+the component sturcture:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+.
+├── README.md
+├── public
+│   └── broccoli-logo.png
+│   └── index.html
+│   └── favicon.ico
+│   └── manifest.json
+│   └── facebook.png
+│   └── twitter.png
+│   │
+├── cypress
+│   └── fixtures
+│   └── integeration
+│   │   └── home.js
+│   └── plugins
+│   └── support
+│   │
+├── src
+│   ├── components
+│   │   ├── atoms
+│   │   │   ├── Button
+│   │   │   │    └── index.js
+│   │   │   │    └── style.css
+│   │   │   │    └── Button.test.js
+│   │   │   │
+│   │   │   ├── Dialog
+│   │   │   │    └── index.js
+│   │   │   │    └── style.css
+│   │   │   │    └── Dialog.test.js
+│   │   │   │
+│   │   │   ├── Input
+│   │   │   │    └── index.js
+│   │   │   │    └── style.css
+│   │   │   │    └── Input.test.js
+│   │   │   │
+│   │   ├── molecules
+│   │   │   ├── Footer
+│   │   │   │   ├── index.js
+│   │   │   │   └── style.css
+│   │   │   │   └── Footer.test.js
+│   │   │   │
+│   │   │   └── Header
+│   │   │   │   ├── index.js
+│   │   │   │   └── style.css
+│   │   │   │   └── Header.test.js
+│   │   │   │
+│   │   │   └── UserFrom
+│   │   │   │   ├── index.js
+│   │   │   │   └── style.css
+│   │   │   │   └── UserForm.test.js
+│   │   │   │
+│   │   ├── organisms
+│   │   │   ├── HomeContent
+│   │   │   │   ├── index.js
+│   │   │   │   └── style.css
+│   │   │   │   └── HomeContent.test.js
+│   │   │   │
+│   │   │   ├── RequestInvite
+│   │   │   │   ├── index.js
+│   │   │   │   └── style.css
+│   │   │   │   └── RequestInvite.test.js
+│   │   │   │
+│   │   │   ├── SuccessInvite
+│   │   │   │   ├── index.js
+│   │   │   │   └── style.css
+│   │   │   │   └── SuccessInvite.test.js
+│   │   │   │
+│   │   └── templates
+│   │   │   ├── HomeLayout
+│   │   │   │   ├── index.js
+│   │   │   │   ├── style.js
+│   │   │   │   └── HomeLayout.test.js
+│   │   │   │
+│   ├── helper
+│   │   ├── validations.js
+│   │   │
+│   └── pages
+│   │    └──Home
+│   │    │  └──index.js
+│   │    │  └──style.css
+│   │    │  └──Home.test.js
+│   └── store
+│   │    └──actionsType.js
+│   │    └──DialogReducer.js
+│   │    └──StoreProvider.js
+│   │    │
+│   └── service
+│   │    └──api.js
+│   │    │  
+│   │    │  
+├── index.css
+├── index.js
+├── setupTests.js
+├── style.js
+├── cypress.json
+├── node_modules
+│   └── [...]
+├── .eslintrc.js
+├── .prettierrc
+└── package-lock.json
+└── package.json
+```
